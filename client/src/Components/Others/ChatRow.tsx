@@ -46,7 +46,9 @@ const ChatRow = ({ id }: Props) => {
       >
         <FontAwesomeIcon icon={faMessage} className="text-white h-5 w-5" />
 
-        <p className="text-white">New Chat</p>
+        <p className="text-white">
+          {messages?.docs[messages?.docs.length - 1]?.data().text || "New Chat"}
+        </p>
 
         <FontAwesomeIcon
           icon={faTrash}
