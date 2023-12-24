@@ -7,6 +7,7 @@ import SessionProvider from "Components/Utility/SessionProvider";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "pages/api/auth/[...nextauth]";
 import Login from "Components/Auth/Login/Login";
+import ClientProvider from "Components/Notification/ClientProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,6 +41,7 @@ export default async function RootLayout({
 
               {
                 // TODO : ClientProvider - Notification */
+                <ClientProvider />
               }
               <div className="bg-[#343541] flex-1">{children}</div>
             </div>
