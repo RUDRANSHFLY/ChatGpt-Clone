@@ -5,6 +5,8 @@ import { useSession } from "next-auth/react";
 import React from "react";
 import { useState } from "react";
 import { db } from "../../../FireBase/FireBase";
+import { getAnswer } from "makeRequest";
+import toast from "react-hot-toast";
 
 type Props = {
   chatId: string;
@@ -13,6 +15,9 @@ type Props = {
 const ChatInput = ({ chatId }: Props) => {
   const [prompt, setPrompt] = useState("");
   const { data: session } = useSession();
+  const model = "text-davinci-003";
+
+  // models details
 
   const sendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,6 +28,7 @@ const ChatInput = ({ chatId }: Props) => {
 
     const input = prompt.trim();
     setPrompt("");
+    const notification = toast.loading("ChatGPT is Thinking...");
 
     const message: Message = {
       text: input,
@@ -47,6 +53,8 @@ const ChatInput = ({ chatId }: Props) => {
       ),
       message
     );
+
+    await getAnswer({ input, chatId, model, session, notification });
   };
 
   return (
