@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import { Inter } from "next/font/google";
 import { comment } from "postcss";
 import "./globals.css";
@@ -8,6 +9,7 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "pages/api/auth/[...nextauth]";
 import Login from "Components/Auth/Login/Login";
 import ClientProvider from "Components/Notification/ClientProvider";
+// import { authHandler } from "../../FireBase/FireBase";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +24,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const session = await getServerSession(authOptions);
+  // const session = await authHandler();
+
   console.log(session);
 
   return (

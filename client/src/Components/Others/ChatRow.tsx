@@ -24,7 +24,7 @@ const ChatRow = ({ id }: Props) => {
       return;
     }
     setActive(pathName.includes(id));
-  }, [pathName]);
+  }, [pathName, id]);
 
   const [messages, loading, error] = useCollection(
     query(

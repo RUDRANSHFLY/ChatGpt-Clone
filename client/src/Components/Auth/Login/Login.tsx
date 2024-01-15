@@ -2,6 +2,7 @@
 import React from "react";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
+import { authSignHandler } from "../../../../FireBase/FireBase";
 
 const Login = () => {
   return (
