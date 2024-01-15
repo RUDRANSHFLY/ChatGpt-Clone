@@ -14,9 +14,15 @@ const Capability = () => {
           <h2>Capabilitiees</h2>
         </div>
         <div className="space-y-2">
-          <p className="infoText">"Change the ChatGPT Model to use"</p>
-          <p className="infoText">"More Specifaction More Accurate Results"</p>
-          <p className="infoText">"What is the Future Aspects of Farming ?"</p>
+          <p className="infoText">
+            &quot;Change the ChatGPT Model to use&quot;
+          </p>
+          <p className="infoText">
+            &quot;More Specifaction More Accurate Results&quot;
+          </p>
+          <p className="infoText">
+            &quot;What is the Future Aspects of Farming ?&quot;
+          </p>
         </div>
       </div>
     </div>

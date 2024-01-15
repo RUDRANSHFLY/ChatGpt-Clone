@@ -14,12 +14,14 @@ const Limitation = () => {
           <h2>Limitation</h2>
         </div>
         <div className="space-y-2">
-          <p className="infoText">"May Generate InCorrect Information"</p>
           <p className="infoText">
-            "May occasionally produces harmful content"
+            &quot;May Generate InCorrect Information&quot;
           </p>
           <p className="infoText">
-            "Limited Knowledge and information after 2021"
+            &quot;May occasionally produces harmful content&quot;
+          </p>
+          <p className="infoText">
+            &quot;Limited Knowledge and information after 2021&quot;
           </p>
         </div>
       </div>

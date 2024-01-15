@@ -11,11 +11,13 @@ const Example = () => {
           <h2>Examples</h2>
         </div>
         <div className="space-y-2">
-          <p className="infoText">"Explain Something to Me"</p>
+          <p className="infoText">&quot;Explain Something to Me&quot;</p>
           <p className="infoText">
-            "Who is best DC or Marvel ? who will win ?"
+            &quot;Who is best DC or Marvel ? who will win ?&quot;
           </p>
-          <p className="infoText">"What is the distance of Earth from Sun ?"</p>
+          <p className="infoText">
+            &quot;What is the distance of Earth from Sun ?&quot;
+          </p>
         </div>
       </div>
     </div>
