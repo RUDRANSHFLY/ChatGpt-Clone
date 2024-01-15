@@ -4,6 +4,8 @@ import type
     NextApiRequest , 
     NextApiResponse 
 } from "next";
+import admin from 'firebase-admin';
+import { adminDB } from "../../../FireBase/FireBaseAdmin";
 
 
 type Data = {
@@ -43,13 +45,26 @@ export default async function handler(
 
     const message : Message = {
         text : response || "ChatGPT was unable to find an answer for that!",
-        createdAt : '',
+        createdAt : admin.firestore.Timestamp.now(),
         user : {
-            _id : '' ,
-            name : '' ,
-            avatar : '',
+            _id : 'ChatGPT' ,
+            name : 'ChatGPT' ,
+            avatar : 'https://links.papareact.com/89k',
         }
-    }
+    };
 
-    res.status(200).json({answer : "John Doe"});
+    await adminDB
+    .collection('users')
+    .doc(session?.user?.email)
+    .collection('chats')
+    .doc(chatId)
+    .collection('messages')
+    .add(message);
+
+
+
+
+
+
+    res.status(200).json({answer : message.text});
 }
