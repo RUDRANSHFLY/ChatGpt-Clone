@@ -52,10 +52,10 @@ export const getModels = async () => {
 
 
         console.log(req.body);
-        const res = req.json();
-        // console.log(res);
-        
-
+        const res = await req.json();
+        console.log(res.data);
+        return res ;
+    
     } catch (error) {
         console.error(error);
     }
