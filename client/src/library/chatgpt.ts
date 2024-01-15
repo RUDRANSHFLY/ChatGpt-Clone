@@ -8,6 +8,8 @@ const openai = new OpenAI(
     }
 );
 
+
+
 export async function mainGpt(prompt: string  ,chatID : string  , model : string) : Promise<string> {
     
     try {
