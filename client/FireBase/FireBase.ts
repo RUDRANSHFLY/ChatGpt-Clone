@@ -1,7 +1,10 @@
 // Import the functions you need from the SDKs you need
+"use client";
+import { Session } from 'next-auth';
 import {getApp , getApps, initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { GoogleAuthProvider, User, getAuth, onAuthStateChanged, signInWithPopup } from "firebase/auth";
 import {getFirestore} from "firebase/firestore";
+import { useEffect, useState } from "react";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,11 +22,44 @@ const firebaseConfig = {
 // const app = initializeApp(firebaseConfig);
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
-
 const auth = getAuth();
 
 
-export { db , auth } ;
+// const [user, setUser] = useState<User | null>(null);
+
+
+// export const authHandler = async (user: { displayName: any; email: any; } | undefined) => {
+//   const expirationTime = new Date().getTime() + 3600 * 1000; // 1 hour from now
+
+//   // Create a Session object
+//   const session = {
+//     user: {
+//       name: user?.displayName,
+//       email: user?.email,
+//       // ... other user properties
+//     },
+//     expires: expirationTime,
+//   };
+
+//   return session;
+// }
+
+const authSignHandler = async() => {
+    const provider = new GoogleAuthProvider();
+    await signInWithPopup(auth,provider);
+
+    
+}
+
+// useEffect(() => {
+//   const unsubscribe = onAuthStateChanged(auth ,(currentUser) => setUser(currentUser));
+
+//   return () => unsubscribe();
+// }, [user])
+
+
+
+
+export { db , auth ,authSignHandler } ;
 
