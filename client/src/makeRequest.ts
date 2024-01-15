@@ -11,18 +11,9 @@ type Props = {
 }
 
 
+const ModelRequestUrl : string = "https://api.openai.com/v1/models";
+
 export const getAnswer = async ({ input , chatId , model ,  session , notification } : Props) => {
-    
-
-    // console.log(`THE INPUT TEXT IS :- ${input}`);
-    // console.log(`THE CHATID IS :- ${chatId}`);
-    // console.log(`THE MODEL IS:- ${model}`);
-    // console.log(`THE SESSION IS :- ${session}`);
- 
-    
-
-    // debugger;
-   
     try {
         await fetch('/api/askQuestion',{
             method : 'POST' ,
@@ -49,6 +40,26 @@ export const getAnswer = async ({ input , chatId , model ,  session , notificati
     return ;
 }
 
+
+export const getModels = async () => {
+    try {
+        const req = await fetch(ModelRequestUrl,{
+            method : 'GET',
+            headers : {
+                Authorization : `Bearer ${process.env.OPENAI_SECRET}`
+            },
+        })
+
+
+        console.log(req.body);
+        const res = req.json();
+        // console.log(res);
+        
+
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 
 
