@@ -29,7 +29,7 @@ export default async function handler(
     
 
 
-    const modelOptions = models.data.map((model: { id: string; owned_by: string; }) => ({
+    const modelOptions = models?.data?.map((model: { id: string; owned_by: string; }) => ({
         value : model.id,
         label : model.owned_by,
     }));
