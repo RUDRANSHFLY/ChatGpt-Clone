@@ -6,7 +6,7 @@ const Example = () => {
   return (
     <div>
       <div>
-        <div className="flex flex-col items-center justify-center mb-5">
+        <div className="w-full flex flex-col items-center justify-center mb-5">
           <FontAwesomeIcon icon={faSun} className="mb-2 h-8 w-8 animate-spin" />
           <h2>Examples</h2>
         </div>
